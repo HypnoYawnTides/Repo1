@@ -56,8 +56,14 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 16px;
   margin-bottom: 18px;
+}
+
+.topbar > div {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .topbar h1 {
@@ -103,7 +109,9 @@ select {
   border-radius: 0;
   box-shadow: none;
   color: #3f3732;
-  margin-top: 4px;
+  margin-top: 0;
+  flex: 0 0 auto;
+  align-self: center;
 }
 
 .icon-button svg {
