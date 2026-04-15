@@ -84,65 +84,95 @@ export default function App() {
           <div>
             <h1>{screen === 'settings' ? '设置' : '弹性闹钟'}</h1>
           </div>
-          <button
-            type="button"
-            className="icon-button"
-            onClick={() => setScreen('settings')}
-            aria-label="打开设置"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M5 7.25h14M5 12h14M5 16.75h14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle
-                cx="9"
-                cy="7.25"
-                r="2.15"
-                fill="#fffdfb"
-                stroke="currentColor"
-                strokeWidth="1.7"
-              />
-              <circle
-                cx="15"
-                cy="12"
-                r="2.15"
-                fill="#fffdfb"
-                stroke="currentColor"
-                strokeWidth="1.7"
-              />
-              <circle
-                cx="11"
-                cy="16.75"
-                r="2.15"
-                fill="#fffdfb"
-                stroke="currentColor"
-                strokeWidth="1.7"
-              />
-            </svg>
-          </button>
+          {screen === 'settings' ? (
+            <button
+              type="button"
+              className="icon-button"
+              onClick={() => setScreen('home')}
+              aria-label="返回"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M9 11l-4-4 4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5 7h10a4 4 0 0 1 0 8H13"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="icon-button"
+              onClick={() => setScreen('settings')}
+              aria-label="打开设置"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5 7.25h14M5 12h14M5 16.75h14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <circle
+                  cx="9"
+                  cy="7.25"
+                  r="2.15"
+                  fill="#fffdfb"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                />
+                <circle
+                  cx="15"
+                  cy="12"
+                  r="2.15"
+                  fill="#fffdfb"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                />
+                <circle
+                  cx="11"
+                  cy="16.75"
+                  r="2.15"
+                  fill="#fffdfb"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                />
+              </svg>
+            </button>
+          )}
         </header>
 
-        <nav className="tabbar" aria-label="页面切换">
-          <button
-            type="button"
-            className={screen === 'home' ? 'tab active' : 'tab'}
-            onClick={() => setScreen('home')}
-          >
-            今晚
-          </button>
-          <button
-            type="button"
-            className={screen === 'details' ? 'tab active' : 'tab'}
-            onClick={() => setScreen('details')}
-          >
-            结果
-          </button>
-        </nav>
+        {screen !== 'settings' && (
+          <nav className="tabbar" aria-label="页面切换">
+            <button
+              type="button"
+              className={screen === 'home' ? 'tab active' : 'tab'}
+              onClick={() => setScreen('home')}
+            >
+              今晚
+            </button>
+            <button
+              type="button"
+              className={screen === 'details' ? 'tab active' : 'tab'}
+              onClick={() => setScreen('details')}
+            >
+              结果
+            </button>
+          </nav>
+        )}
 
         {screen === 'home' && (
           <div className="screen">
